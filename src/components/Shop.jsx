@@ -8,7 +8,6 @@ import {Cart} from './Cart'
 import {BasketList} from './BasketList'
 import {Alert} from './Alert'
 
-
 function Shop() {
     const {loading, isBasketShow, alertName, setGoods} = useContext(ShopContext)
 
