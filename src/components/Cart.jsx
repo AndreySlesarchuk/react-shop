@@ -3,7 +3,9 @@ import {ShopContext} from '../context'
 
 function Cart() {
     const {order, handleBasketShow = Function.prototype} = useContext(ShopContext)
-    const quantity = order.length
+    const quantity = order.reduce((number, it) => {
+        return number + it.quantity
+    }, 0)
 
     return (
         <div className='cart blue darken-4 white-text' onClick={handleBasketShow}>
