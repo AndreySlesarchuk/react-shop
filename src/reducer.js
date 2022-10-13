@@ -73,11 +73,21 @@ export function reducer(state, {type, payload}) {
                 ...state,
                 alertName: ''
             }
-        case 'SEND_ORDER':
-            return {
-                ...state,
-                alertName: 'Your order has been successfully sent',
+        case 'SEND_ORDER': {
+            if (state.order.length) {
+                return {
+                    ...state,
+                    alertName: 'Your order has been successfully sent',
+                    order: [],
+                    isBasketShow: false
+                }
+            } else {
+                return {
+                    ...state,
+                    alertName: 'Your basket is empty'
+                }
             }
+        }
         default:
             return state
     }
